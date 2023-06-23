@@ -153,7 +153,7 @@ const nextQuestion = () => {
     const c =
       Object.keys(cMap)[Math.floor(Math.random() * Object.keys(cMap).length)];
 
-    if (Math.random() > 0.8) {
+    if (Math.random() < 0.8) {
       currentSymbol = `${c} ${v}`;
     } else {
       currentSymbol = `${v} ${c}`;
