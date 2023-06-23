@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="symbols.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <p id="top-text"></p>
+      <p id="sub-text"></p>
+    </div>
+    <div class="svg-canvas">
+      <svg viewbox="0 0 6 7">
+        <!-- inactive lines -->
+        <!-- top /, \ -->
+        <line class="off" id="off-tol" x1="1" y1="1.5" x2="3" y2="0.5" />
+        <line class="off" id="off-tor" x1="3" y1="0.5" x2="5" y2="1.5" />
+        <!-- top \, |, / -->
+        <line class="off top" id="off-til" x1="3" y1="2.5" x2="1" y2="1.5" />
+        <line class="off top" id="off-tim" x1="3" y1="2.5" x2="3" y2="0.5" />
+        <line class="off top" id="off-tir" x1="3" y1="2.5" x2="5" y2="1.5" />
+        <!-- top decoration -->
+        <line class="deco" id="off-top-deco" x1="3" y1="2.5" x2="3" y2="3" />
+        <!-- side -->
+        <line class="off side" id="off-s1" x1="1" y1="1.5" x2="1" y2="3" />
+        <line class="off side" id="off-s2" x1="1" y1="3.5" x2="1" y2="4.5" />
+        <!-- bottom /, |, \ -->
+        <line class="off bottom" id="off-bil" x1="3" y1="3.5" x2="1" y2="4.5" />
+        <line class="off bottom" id="off-bim" x1="3" y1="3.5" x2="3" y2="5.5" />
+        <line class="off bottom" id="off-bir" x1="3" y1="3.5" x2="5" y2="4.5" />
+        <!-- bottom \, / -->
+        <line class="off" id="off-bol" x1="1" y1="4.5" x2="3" y2="5.5" />
+        <line class="off" id="off-bor" x1="3" y1="5.5" x2="5" y2="4.5" />
+        <!-- bottom circle -->
+        <circle class="off" id="off-circle" cx="3" cy="6" r="0.2" />
+
+        <!-- active lines -->
+        <!-- baseline -->
+        <line id="baseline" x1="1" y1="3" x2="5" y2="3" />
+        <!-- top /, \ -->
+        <line class="on" id="on-tol" x1="1" y1="1.5" x2="3" y2="0.5" />
+        <line class="on" id="on-tor" x1="3" y1="0.5" x2="5" y2="1.5" />
+        <!-- top \, |, / -->
+        <line class="on top" id="on-til" x1="3" y1="2.5" x2="1" y2="1.5" />
+        <line class="on top" id="on-tim" x1="3" y1="2.5" x2="3" y2="0.5" />
+        <line class="on top" id="on-tir" x1="3" y1="2.5" x2="5" y2="1.5" />
+        <!-- top decoration -->
+        <line class="deco" id="on-top-deco" x1="3" y1="2.5" x2="3" y2="3" />
+        <!-- side -->
+        <line class="on side" id="on-s1" x1="1" y1="1.5" x2="1" y2="3" />
+        <line class="on side" id="on-s2" x1="1" y1="3.5" x2="1" y2="4.5" />
+        <!-- bottom /, |, \ -->
+        <line class="on bottom" id="on-bil" x1="3" y1="3.5" x2="1" y2="4.5" />
+        <line class="on bottom" id="on-bim" x1="3" y1="3.5" x2="3" y2="5.5" />
+        <line class="on bottom" id="on-bir" x1="3" y1="3.5" x2="5" y2="4.5" />
+        <!-- bottom \, / -->
+        <line class="on" id="on-bol" x1="1" y1="4.5" x2="3" y2="5.5" />
+        <line class="on" id="on-bor" x1="3" y1="5.5" x2="5" y2="4.5" />
+        <!-- bottom circle -->
+        <circle class="on" id="on-circle" cx="3" cy="6" r="0.2" />
+
+        <!-- solution lines -->
+        <!-- baseline -->
+        <line class="sln" id="sln-baseline" x1="1" y1="3" x2="5" y2="3" />
+        <!-- top /, \ -->
+        <line class="sln" id="sln-tol" x1="1" y1="1.5" x2="3" y2="0.5" />
+        <line class="sln" id="sln-tor" x1="3" y1="0.5" x2="5" y2="1.5" />
+        <!-- top \, |, / -->
+        <line class="sln" id="sln-til" x1="3" y1="2.5" x2="1" y2="1.5" />
+        <line class="sln" id="sln-tim" x1="3" y1="2.5" x2="3" y2="0.5" />
+        <line class="sln" id="sln-tir" x1="3" y1="2.5" x2="5" y2="1.5" />
+        <!-- top decoration -->
+        <line class="sln" id="sln-top-deco" x1="3" y1="2.5" x2="3" y2="3" />
+        <!-- side -->
+        <line class="sln side" id="sln-s1" x1="1" y1="1.5" x2="1" y2="3" />
+        <line class="sln side" id="sln-s2" x1="1" y1="3.5" x2="1" y2="4.5" />
+        <!-- bottom /, |, \ -->
+        <line class="sln" id="sln-bil" x1="3" y1="3.5" x2="1" y2="4.5" />
+        <line class="sln" id="sln-bim" x1="3" y1="3.5" x2="3" y2="5.5" />
+        <line class="sln" id="sln-bir" x1="3" y1="3.5" x2="5" y2="4.5" />
+        <!-- bottom \, / -->
+        <line class="sln" id="sln-bol" x1="1" y1="4.5" x2="3" y2="5.5" />
+        <line class="sln" id="sln-bor" x1="3" y1="5.5" x2="5" y2="4.5" />
+        <!-- bottom circle -->
+        <circle class="sln" id="sln-circle" cx="3" cy="6" r="0.2" />
+      </svg>
+    </div>
+    <div id="settings">
+      <div>
+        <span
+          ><input
+            type="radio"
+            name="mode"
+            value="stp"
+            id="radio-stp"
+            checked="checked"
+          />
+          Symbol to phonic</span
+        >
+        <span
+          ><input type="radio" name="mode" value="ptsh" id="radio-ptsh" />
+          Phonic to symbol (with hints)</span
+        >
+        <span
+          ><input type="radio" name="mode" value="ptsnh" id="radio-ptsnh" />
+          Phonic to symbol (no hints)</span
+        >
+      </div>
+      <div>
+        <span
+          ><input
+            type="radio"
+            name="test"
+            value="vo"
+            id="radio-vo"
+            checked="checked"
+          />
+          Vowel only</span
+        >
+        <span
+          ><input type="radio" name="test" value="co" id="radio-co" /> Consonant
+          only</span
+        >
+        <span
+          ><input type="radio" name="test" value="cov" id="radio-cov" />
+          Consonant or vowel</span
+        >
+        <span
+          ><input type="radio" name="test" value="cav" id="radio-cav" />
+          Consonant and vowel</span
+        >
+      </div>
+    </div>
+    <div id="controls">
+      <button id="next"></button>
+    </div>
+  </body>
+</html>
